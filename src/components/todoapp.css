@@ -11,24 +11,33 @@
     align-items: center;
     flex-direction: column;
     gap: 40px;
-    background-color: khaki;
-    height: 90vh;
-    width: 700px;
+    background-color: #D2B48C;
+    height: 99vh;
+    width: 560px;
+    border-radius: 20px;
+   
 }
 
 .input-task input{
     width: 300px;
     height: 50px;
-    border-radius: 50px;
+    border-radius: 10px;
     text-align: center;
 }
 
 .submit-task button{
-    width: 300px;
+    width: 200px;
     height: 50px;
-    border-radius: 50px;
+    border-radius: 10px;
     margin-top: 20px;
-    border-radius: 50px;
+    
+}
+
+.submit-task{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s ease-in-out;
 }
 
 
@@ -45,17 +54,18 @@
     position: relative; 
     display: flex;
     align-items: center;
-    background-color: blue; 
+    background-color: #E6D2BD; 
     color: whitesmoke;
     margin: 10px 0; 
     padding: 10px; 
     border-radius: 5px; 
     overflow: hidden; 
     text-align: center;
+  
 }
 
 .list-task.completed{
-    background-color: black;
+    background-color: khaki;
 }
 
 .list-task.completed .task-text{
@@ -64,7 +74,9 @@
 
 .check-box {
     flex-shrink: 0; 
-    margin-right: 10px; 
+ 
+    width: 50px;
+    height: 20px;
 }
 
 .task-content {
@@ -73,11 +85,15 @@
     word-wrap: break-word;
     white-space: normal; 
     overflow: hidden; 
+    text-align: center;
+
+  
 }
 
 .task-text {
     display: inline-block;
     max-width: calc(100% - 70px); 
+    color: black;
 }
 
 .delete {
@@ -85,4 +101,6 @@
     right: 10px; 
     top: 50%;
     transform: translateY(-50%); 
+    color: black;
+    font-size: 1.5rem;
 }
