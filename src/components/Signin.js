@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import './Signin.css';
 import { db } from '../firebase/firebase'; // Ensure this import is correct
 import { ref, onValue, push } from 'firebase/database';
+import { useNavigate } from 'react-router-dom';
+import Todoapp from './todoapp';
 
 const Signin = () => {
 
@@ -13,18 +15,31 @@ const Signin = () => {
 
         }
     );
+
+    const [loginCredentials, setLoginCredentials] = useState(
+        {
+            Username : '',
+            Password: '',
+        }
+    );
+
+    const [errorMessage, setErrorMessage] = useState('');
+    const [allUsers, setAllUser] = useState([]);
+
+    const navigate = useNavigate();
+
     
     useEffect(() => {
 
         const taksRef = ref(db, 'Registration');
        const unsubscribe = onValue (taksRef, (snapshot) => {
-            const taskData = [];
+            const users = [];
             snapshot.forEach(childSnapshot => {
-                taskData.push({id:childSnapshot.key, ...childSnapshot.val()});
+                users.push({id:childSnapshot.key, ...childSnapshot.val()});
             });
             setCredentials(prevState => ({
                 ...prevState,
-                ...taskData
+                ...users
             }));
         });
 
@@ -40,8 +55,16 @@ const Signin = () => {
         }));
 
     }
+    
+    const handleLoginChange = (e) => {
+        const {name, value} = e.target;
+        setLoginCredentials(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    }
 
-    const handleSubmit = (e) => {
+    const handleRegisterSubmit = (e) => {
         e.preventDefault();   
         const taskRef = ref(db, 'Registration');
         const {Name, Username, Password} = Credentials
@@ -65,12 +88,26 @@ const Signin = () => {
     
     };
 
+    const handleLoginSubmit = (e) => {
+        e.preventDefault();
+        const {Username, Password} = loginCredentials;
+        
+        const user =allUsers.find(user => user.Username === Username && user.Password === Password);
+        
+        if (user) {
+            setErrorMessage('')
+            navigate('./todoapp');
+        }else{
+            setErrorMessage('Invalid Username or Password.');
+        }
+    }; 
+
     return(
     <>
 
     <div className='container'>
         <div className='card'>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleRegisterSubmit}>
             <div className='name-input'>
                 <input 
                 type='text' 
@@ -110,7 +147,33 @@ const Signin = () => {
 
             </form>
 
+            <form onSubmit={handleLoginSubmit}>
+                    <div className='username-input'>
+                        <input
+                            type='text'
+                            name='Username'
+                            value={loginCredentials.Username}
+                            onChange={handleLoginChange}
+                            placeholder='Enter your username'
+                            required
+                        />
+                    </div>
+                    <div className='password-input'>
+                        <input
+                            type='password'
+                            name='Password'
+                            value={loginCredentials.Password}
+                            onChange={handleLoginChange}
+                            placeholder='Enter your password'
+                            required
+                        />
+                    </div>
+                    <div className='login-button'>
+                        <button type='submit'>Login</button>
+                    </div>
+                </form>
 
+                {errorMessage && <p className="error">{errorMessage}</p>}
            
 
         </div>
