@@ -37,10 +37,7 @@ const Signin = () => {
             snapshot.forEach(childSnapshot => {
                 users.push({id:childSnapshot.key, ...childSnapshot.val()});
             });
-            setCredentials(prevState => ({
-                ...prevState,
-                ...users
-            }));
+            setAllUser(users)
         });
 
         return () => unsubscribe();
@@ -96,7 +93,7 @@ const Signin = () => {
         
         if (user) {
             setErrorMessage('')
-            navigate('./todoapp');
+            navigate('/todoapp', {state: {user} });
         }else{
             setErrorMessage('Invalid Username or Password.');
         }
