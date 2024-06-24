@@ -2,15 +2,108 @@
     display: flex;
     align-items: center;
     justify-content: center;
- 
+    overflow: hidden;
+    background: rgb(201,196,162);
+    background: linear-gradient(239deg, rgba(201,196,162,1) 9%, rgba(255,239,132,1) 77%);
 }
 
 .card{
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
+    justify-content: space-between;
     width: 500px;
     height: 100vh;
-    background-color: cadetblue;
+    background-color: #f1e9e9;
+  
+}
+.register-label, .login-label{
+    cursor: pointer;
+}
+
+.register-label{
+    position: relative;
+    top:0;
+}
+
+
+.registration, .login{
+    position: absolute;
+    text-align: center;    
+    transition: 1s ease-in-out;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 400px;
+    height: 80vh;
+    background-color: #ffef84;
+}
+
+.registration{
+    top:-100%;
+   
+}
+
+
+.registration input{
+    width: 250px;
+    height: 45px;
+    border-radius: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.register-center{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.register-out{
+    top:-100%;
+
+}
+
+.register-button button{
+    width: 150px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+.login{
+    bottom: -100%;
+    
+}
+
+.login input{
+    width: 250px;
+    height: 45px;
+    border-radius: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.login-button button{  
+    width: 150px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+.login-center{
+    bottom: 50%;
+    transform: translateY(50%);
+}
+
+.login-out{
+    bottom: -100%;
+}
+
+.error{
+    margin-top: 20px;
+}
+
+.welcome-out{
+    visibility: hidden;
+    transform: 1s ease-in-out;
 }

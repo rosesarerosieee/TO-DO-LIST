@@ -12,21 +12,20 @@ const Signin = () => {
             Name: '',
             Username: '',
             Password: '',
-
         }
     );
-
     const [loginCredentials, setLoginCredentials] = useState(
         {
             Username : '',
             Password: '',
         }
     );
-
     const [errorMessage, setErrorMessage] = useState('');
     const [allUsers, setAllUser] = useState([]);
-
     const navigate = useNavigate();
+    const [isRegister, setIsRegister] = useState(false);
+    const [isLogin, setIsLogin] = useState(false);
+    const [isWelcomeVisible, setIsWelcomeVisible] =useState(false);
 
     
     useEffect(() => {
@@ -99,12 +98,33 @@ const Signin = () => {
         }
     }; 
 
+    const handleIsRegister = () => {
+        setIsRegister(prevIsRegister => !prevIsRegister);
+        if(isLogin){
+            setIsLogin(false);
+        }
+    
+    }
+
+    const handleIsLogin = () => {
+        setIsLogin(previsLogin => !previsLogin);
+        if(isRegister){
+            setIsRegister(false);
+            
+        }
+    }
+
+
     return(
     <>
 
     <div className='container'>
         <div className='card'>
+        
+        <span className='register-label' onClick={handleIsRegister}>Register</span>
+            <div className={`registration ${isRegister ? 'register-center' : 'register-out'}`}>
             <form onSubmit={handleRegisterSubmit}>
+            <h3>Register</h3>
             <div className='name-input'>
                 <input 
                 type='text' 
@@ -138,13 +158,20 @@ const Signin = () => {
                   />
             </div>
             
-                <div className='login-button'>
+                <div className='register-button'>
                   <button type='submit'>Register</button>
                 </div>
 
             </form>
+            </div>
 
+            <div className={`welcome ${isRegister || isLogin ? 'welcome-out' : ''}`}>
+                <h1 >Welcome to 2-DOWEBAPP</h1>
+            </div>
+            
+            <div className={`login ${isLogin ? 'login-center': 'login-out'}`}>
             <form onSubmit={handleLoginSubmit}>
+                <h3>Login</h3>
                     <div className='username-input'>
                         <input
                             type='text'
@@ -168,11 +195,11 @@ const Signin = () => {
                     <div className='login-button'>
                         <button type='submit'>Login</button>
                     </div>
+                    {errorMessage && <p className="error">{errorMessage}</p>}        
                 </form>
-
-                {errorMessage && <p className="error">{errorMessage}</p>}
-           
-
+          
+            </div>
+            <span className='login-label' onClick={handleIsLogin}>Login</span>   
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './todoapp.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faLightbulb} from '@fortawesome/free-solid-svg-icons';
+import { faTrash} from '@fortawesome/free-solid-svg-icons';
 import { db } from '../firebase/firebase'; // Ensure this import is correct
 import { ref, onValue, push, update, remove } from 'firebase/database';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -12,8 +12,6 @@ const Todoapp = () => {
   const user = location.state.user;
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState('');
-  const [isBlack, setIsBlack] = useState(false);
-
   useEffect(() => {
     if (!user) {
       navigate('/');
@@ -64,21 +62,15 @@ const Todoapp = () => {
     navigate('/');
   };
 
-  const handleToggleChangeColor = () => {
-    setIsBlack(prevIsBlack => !prevIsBlack)
-  };
 
 
   return (
     <>
-     
-      <div className={`container ${isBlack ? 'isBlack' : ''}`}>
-        <FontAwesomeIcon icon={faLightbulb} onClick={handleToggleChangeColor} className='bulb'/>
+
+        <div className='container'>
         <div className="paper">
           <h2 className="title">TO DO LIST</h2>
           <h2 className="name">{user.Name}</h2>
-          <button onClick={handleLogout}>Logout</button>
-
           <form onSubmit={handleSubmit}>
             <div className="input-task">
               <input
@@ -114,6 +106,7 @@ const Todoapp = () => {
               </li>
             ))}
           </ul>
+          <button onClick={handleLogout} className='logout'>Logout</button>
         </div>
       </div>
     </>

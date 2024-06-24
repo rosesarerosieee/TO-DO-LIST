@@ -2,20 +2,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    font-family: "Bungee";
+    font-size: 1rem;
     overflow: hidden;
+    background: rgb(201,196,162);
+    background: linear-gradient(239deg, rgba(201,196,162,1) 9%, rgba(255,239,132,1) 77%);
 }
 
 .paper{
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 40px;
-    background-color: #D2B48C;
-    height: 99vh;
+    gap: 10px;
+    background-color:  #f1e9e9;
+    height: 100vh;
     width: 560px;
-    border-radius: 20px;
-   
+}
+.input-task{
+    margin-top: 25px;
 }
 
 .input-task input{
@@ -29,7 +33,7 @@
     width: 200px;
     height: 50px;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 35px;
     
 }
 
@@ -37,7 +41,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 1s ease-in-out;
+    margin-bottom: 10px;
 }
 
 
@@ -45,8 +49,6 @@
     width: 500px;
     height: 300px;
     list-style-type: none; 
-    padding: 0; 
-    margin: 0; 
     overflow-y: auto;
 }
 
@@ -54,10 +56,9 @@
     position: relative; 
     display: flex;
     align-items: center;
-    background-color: #E6D2BD; 
+    background-color:#ffef84;
     color: whitesmoke;
     margin: 10px 0; 
-    padding: 10px; 
     border-radius: 5px; 
     overflow: hidden; 
     text-align: center;
@@ -65,7 +66,7 @@
 }
 
 .list-task.completed{
-    background-color: khaki;
+    background-color: white;
 }
 
 .list-task.completed .task-text{
@@ -86,8 +87,6 @@
     white-space: normal; 
     overflow: hidden; 
     text-align: center;
-
-  
 }
 
 .task-text {
@@ -105,7 +104,10 @@
     font-size: 1.5rem;
 }
 
-.isBlack{
-    background-color: black;
+
+.logout{
+    width: 200px;
+    height: 40px;
+    border-radius: 50px;
 }
 
