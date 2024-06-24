@@ -3,7 +3,6 @@ import './Signin.css';
 import { db } from '../firebase/firebase'; // Ensure this import is correct
 import { ref, onValue, push } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-import Todoapp from './todoapp';
 
 const Signin = () => {
 
@@ -25,8 +24,7 @@ const Signin = () => {
     const navigate = useNavigate();
     const [isRegister, setIsRegister] = useState(false);
     const [isLogin, setIsLogin] = useState(false);
-    const [isWelcomeVisible, setIsWelcomeVisible] =useState(false);
-
+   
     
     useEffect(() => {
 

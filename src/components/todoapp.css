@@ -75,7 +75,6 @@
 
 .check-box {
     flex-shrink: 0; 
- 
     width: 50px;
     height: 20px;
 }
@@ -111,3 +110,233 @@
     border-radius: 50px;
 }
 
+/*Phone*/
+@media (max-width: 767px) {
+    
+    .paper{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        background-color:  #f1e9e9;
+        height: 100vh;
+        width: 280px;
+        padding: 20px;
+        font-size: 0.8rem;
+    }
+    .input-task input{
+        width: 200px;
+        height: 40px;
+
+    }
+
+    .submit-task button{
+        width: 150px;
+        height: 40px;
+    }
+
+    
+
+    .ul-task{
+        width: 250px;
+        height: 200px;
+    }
+    
+    .task-content{
+        padding: 5px;
+
+    }
+
+    .task-text{
+        font-size: 0.9rem;
+    }
+
+    .check-box {
+        margin-left: 20px;
+        width: 15px;
+        height: 20px;
+    }
+
+    .delete{
+        font-size: 1rem;
+    }
+    
+    .logout{
+        margin-top: 20px;
+        width: 150px;
+        height: 30px;
+    }
+}
+
+/*tablet*/
+@media (min-width: 768px) and (max-width: 1023px){
+    
+    .paper{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        background-color:  #f1e9e9;
+        height: 100vh;
+        width: 500px;
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+    .input-task input{
+        width: 200px;
+        height: 45px;
+
+    }
+
+    .submit-task button{
+        width: 150px;
+        height: 45px;
+    }
+
+    
+
+    .ul-task{
+        width: 450px;
+        height: 200px;
+    }
+    
+    .task-content{
+        padding: 30px;
+
+    }
+
+    .task-text{
+        font-size: 0.9rem;
+    }
+
+    .check-box {
+        margin-left: 20px;
+        width: 15px;
+        height: 20px;
+    }
+
+    .delete{
+        font-size: 1rem;
+    }
+    
+    .logout{
+        margin-top: 20px;
+        width: 150px;
+        height: 30px;
+    }
+}
+
+@media (min-width: 1024px) {
+    
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Bungee";
+        font-size: 1rem;
+        overflow: hidden;
+        background: rgb(201,196,162);
+        background: linear-gradient(239deg, rgba(201,196,162,1) 9%, rgba(255,239,132,1) 77%);
+    }
+    
+    .paper{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        background-color:  #f1e9e9;
+        height: 100vh;
+        width: 560px;
+    }
+    .input-task{
+        margin-top: 25px;
+    }
+    
+    .input-task input{
+        width: 300px;
+        height: 50px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    
+    .submit-task button{
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+        margin-top: 35px;
+        
+    }
+    
+    .submit-task{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    
+    .ul-task {
+        width: 500px;
+        height: 300px;
+        list-style-type: none; 
+        overflow-y: auto;
+    }
+    
+    .list-task {
+        position: relative; 
+        display: flex;
+        align-items: center;
+        background-color:#ffef84;
+        color: whitesmoke;
+        margin: 10px 0; 
+        border-radius: 5px; 
+        overflow: hidden; 
+        text-align: center;
+      
+    }
+    
+    .list-task.completed{
+        background-color: white;
+    }
+    
+    .list-task.completed .task-text{
+        text-decoration: line-through;
+    }
+    
+    .check-box {
+        flex-shrink: 0; 
+        width: 50px;
+        height: 20px;
+    }
+    
+    .task-content {
+        padding: 20px;
+        flex-grow: 1; 
+        word-wrap: break-word;
+        white-space: normal; 
+        overflow: hidden; 
+        text-align: center;
+    }
+    
+    .task-text {
+        display: inline-block;
+        max-width: calc(100% - 70px); 
+        color: black;
+    }
+    
+    .delete {
+        position: absolute;
+        right: 10px; 
+        top: 50%;
+        transform: translateY(-50%); 
+        color: black;
+        font-size: 1.5rem;
+    }
+    
+    
+    .logout{
+        width: 200px;
+        height: 40px;
+        border-radius: 50px;
+    }
+}
