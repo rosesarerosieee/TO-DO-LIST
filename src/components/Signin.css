@@ -112,6 +112,7 @@
 
     .card{
         width: 280px;
+        padding: 40px;
     }
 
     .login-label, .register-label{
@@ -125,6 +126,7 @@
 
     .registration, .login{
         width: 250px;
+        height: 65vh;
     }
 
     .registration input{
