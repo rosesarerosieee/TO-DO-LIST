@@ -110,8 +110,13 @@
 
 @media (max-width: 767px){
 
+    .container{
+        height: 100vh;
+    }
+
     .card{
         width: 280px;
+        height: 90vh;
         padding: 40px;
     }
 
