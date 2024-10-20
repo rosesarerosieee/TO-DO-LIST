@@ -14,8 +14,7 @@
     justify-content: space-between;
     width: 500px;
     height: 100vh;
-    background-color: #f1e9e9;
-  
+    background-color: #f1e9e9; 
 }
 .register-label, .login-label{
     cursor: pointer;
@@ -73,7 +72,6 @@
 
 .login{
     bottom: -100%;
-    
 }
 
 .login input{

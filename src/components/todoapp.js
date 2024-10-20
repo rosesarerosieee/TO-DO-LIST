@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import './todoapp.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash} from '@fortawesome/free-solid-svg-icons';
-import { db } from '../firebase/firebase'; // Ensure this import is correct
-import { ref, onValue, push, update, remove } from 'firebase/database';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import "./todoapp.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { db } from "../firebase/firebase"; // Ensure this import is correct
+import { ref, onValue, push, update, remove } from "firebase/database";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Todoapp = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const user = location.state.user;
   const [tasks, setTasks] = useState([]);
-  const [taskInput, setTaskInput] = useState('');
+  const [taskInput, setTaskInput] = useState("");
+
   useEffect(() => {
     if (!user) {
-      navigate('/');
+      navigate("/");
       return;
     }
-
     const taskRef = ref(db, `tasks/${user.id}`);
     onValue(taskRef, (snapshot) => {
       const taskData = [];
@@ -34,7 +34,7 @@ const Todoapp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (taskInput.trim() === '') {
+    if (taskInput.trim() === "") {
       return;
     }
     const taskRef = ref(db, `tasks/${user.id}`);
@@ -42,7 +42,7 @@ const Todoapp = () => {
       text: taskInput,
       completed: false,
     });
-    setTaskInput('');
+    setTaskInput("");
   };
 
   const handleCompleted = (id) => {
@@ -59,15 +59,12 @@ const Todoapp = () => {
   };
 
   const handleLogout = () => {
-    navigate('/');
+    navigate("/");
   };
-
-
 
   return (
     <>
-
-        <div className='container'>
+      <div className="container">
         <div className="paper">
           <h2 className="title">TO DO LIST</h2>
           <h2 className="name">{user.Name}</h2>
@@ -86,9 +83,11 @@ const Todoapp = () => {
           </form>
 
           <ul className="ul-task">
-            
             {tasks.map((task) => (
-              <li key={task.id} className={`list-task ${task.completed ? 'completed' : ''}`}>
+              <li
+                key={task.id}
+                className={`list-task ${task.completed ? "completed" : ""}`}
+              >
                 <input
                   type="checkbox"
                   checked={task.completed}
@@ -106,7 +105,9 @@ const Todoapp = () => {
               </li>
             ))}
           </ul>
-          <button onClick={handleLogout} className='logout'>Logout</button>
+          <button onClick={handleLogout} className="logout">
+            Logout
+          </button>
         </div>
       </div>
     </>
